@@ -92,9 +92,12 @@
 
 (require 'helm)
 (require 'helm-git-grep)
+(require 'helm-projectile)
+(require 'cl)
 
 (global-set-key (kbd "M-SPC") 'helm-mini) 
 (global-set-key (kbd "C-c g") 'helm-git-grep) 
+(global-set-key (kbd "M-RET") 'helm-projectile)
 
 (require 'company)
 (global-company-mode)
