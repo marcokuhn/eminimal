@@ -95,8 +95,8 @@
 (require 'helm-projectile)
 (require 'cl)
 
-(global-set-key (kbd "M-SPC") 'helm-mini) 
-(global-set-key (kbd "M-RET") 'helm-projectile)
+(global-set-key (kbd "M-RET") 'helm-mini)
+(global-set-key (kbd "M-SPC") 'helm-projectile)
 
 (global-set-key (kbd "DEL") 'backward-delete-char-untabify)
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -106,6 +106,10 @@
 
 (require 'company)
 (global-company-mode)
+
+(define-key company-mode-map (kbd "TAB") 'company-complete-common)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
 
 (require 'flycheck)
 (global-flycheck-mode)
@@ -130,5 +134,12 @@
     (push 'escape unread-command-events))
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
+
+
+(set-face-background 'helm-source-header "black")
+(set-face-background 'helm-selection "black")
+(set-face-background 'helm-match "black")
+(set-face-background 'helm-buffer-size "black")
+(set-face-background 'helm-ff-directory "black")
 
 (server-start)
