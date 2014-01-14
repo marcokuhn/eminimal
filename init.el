@@ -96,8 +96,13 @@
 (require 'cl)
 
 (global-set-key (kbd "M-SPC") 'helm-mini) 
-(global-set-key (kbd "C-c g") 'helm-git-grep) 
 (global-set-key (kbd "M-RET") 'helm-projectile)
+
+(global-set-key (kbd "DEL") 'backward-delete-char-untabify)
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+(global-set-key (kbd "C-c c") 'compile)
+(global-set-key (kbd "C-c g") 'helm-git-grep) 
 
 (require 'company)
 (global-company-mode)
