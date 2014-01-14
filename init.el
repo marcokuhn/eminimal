@@ -105,6 +105,8 @@
 (require 'flycheck)
 (global-flycheck-mode)
 
+(setq evil-want-C-u-scroll t)
+(require 'evil)
 (evil-mode 1)
 (define-key evil-insert-state-map "k" #'cofi/maybe-exit)
 
@@ -124,3 +126,4 @@
        (t (setq unread-command-events (append unread-command-events
                           (list evt))))))))
 
+(server-start)
