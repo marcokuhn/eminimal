@@ -7,7 +7,7 @@
 
 (line-number-mode t)
 (column-number-mode t)
-(size-indication-mode t)
+(size-indication-mode -1)
 (menu-bar-mode t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
