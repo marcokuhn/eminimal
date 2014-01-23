@@ -1,145 +1,51 @@
-(require 'package)
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/themes")
+(add-to-list 'load-path "~/.emacs.d/personal/")
 
-(add-to-list 'package-archives
-              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(package-initialize)
-
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(mapc
-  (lambda (package)
-    (unless (package-installed-p package)
-      (package-install package)))
-  '(flycheck 
-    evil 
-    projectile 
-    helm 
-    helm-projectile 
-    helm-git-grep 
-    diminish 
-    go-mode 
-    company))
-
-;; the blinking cursor is nothing, but an annoyance
-(blink-cursor-mode -1)
-
-;; disable startup screen
-(setq inhibit-startup-screen t)
-
-;; nice scrolling
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
-
-;; mode line settings
-(line-number-mode t)
-(column-number-mode t)
-(size-indication-mode t)
-
-(menu-bar-mode -1)
-
-;; make the fringe (gutter) smaller
-;; the argument is a width in pixels (the default is 8)
-(if (fboundp 'fringe-mode)
-    (fringe-mode 4))
-
-;; enable y/n answers
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; more useful frame title, that show either a file or a
-;; buffer name (if the buffer isn't visiting a file)
-(setq frame-title-format
-      '("" invocation-name " Prelude - " (:eval (if (buffer-file-name)
-                                            (abbreviate-file-name (buffer-file-name))
-                                          "%b"))))
-
-(setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
-(setq-default tab-width 8)            ;; but maintain correct appearance
-
-;; delete the selection with a keypress
-(delete-selection-mode t)
-
-;; store all backup and autosave files in the tmp dir
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-;; revert buffers automatically when underlying files are changed externally
-(global-auto-revert-mode t)
-
-;; smart tab behavior - indent or complete
-(setq tab-always-indent 'complete)
-
-(savehist-mode +1)
-
-;; save recent files
-(require 'recentf)
-(setq recentf-save-file "/tmp/recentf"
-      recentf-max-saved-items 500
-      recentf-max-menu-items 15)
-(recentf-mode +1)
-
-(require 'go-mode-load)
-
-;; projectile is a project management mode
-(require 'projectile)
-(setq projectile-cache-file "/tmp/projectile-cache")
-(projectile-global-mode t)
-(diminish 'projectile-mode "Prjl")
-
-(require 'helm)
-(require 'helm-git-grep)
-(require 'helm-projectile)
-(require 'cl)
-
-(global-set-key (kbd "M-RET") 'helm-mini)
-(global-set-key (kbd "M-SPC") 'helm-projectile)
-
-(global-set-key (kbd "DEL") 'backward-delete-char-untabify)
-(global-set-key (kbd "RET") 'newline-and-indent)
-
-(global-set-key (kbd "C-c c") 'compile)
-(global-set-key (kbd "C-c g") 'helm-git-grep) 
-
-(require 'company)
-(global-company-mode)
-
-(define-key company-mode-map (kbd "TAB") 'company-complete-common)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-
-(require 'flycheck)
-(global-flycheck-mode)
-
-(setq evil-want-C-u-scroll t)
-(require 'evil)
-(evil-mode 1)
-(define-key evil-insert-state-map "k" #'cofi/maybe-exit)
-
-(evil-define-command cofi/maybe-exit ()
-  :repeat change
-  (interactive)
-  (let ((modified (buffer-modified-p)))
-    (insert "k")
-    (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
-               nil 0.1)))
-      (cond
-       ((null evt) (message ""))
-       ((and (integerp evt) (char-equal evt ?j))
-    (delete-char -1)
-    (set-buffer-modified-p modified)
-    (push 'escape unread-command-events))
-       (t (setq unread-command-events (append unread-command-events
-                          (list evt))))))))
-
-
-(set-face-background 'helm-source-header "black")
-(set-face-background 'helm-selection "black")
-(set-face-background 'helm-match "black")
-(set-face-background 'helm-buffer-size "black")
-(set-face-background 'helm-ff-directory "black")
+(load "setup-defaults")
+(load "setup-package")
+(load "setup-theme")
+(load "setup-auto-complete")
+(load "setup-auto-complete")
+(load "setup-c-mode")
+(load "setup-company")
+(load "setup-dart-mode")
+(load "setup-dash")
+(load "setup-dired")
+(load "setup-elscreen")
+(load "setup-emacs-lisp-mode")
+(load "setup-ensime")
+(load "setup-evil")
+(load "setup-flycheck-mode")
+(load "setup-go")
+(load "setup-haml-mode")
+(load "setup-haskell-mode")
+(load "setup-helm")
+(load "setup-java")
+(load "setup-js2-mode")
+(load "setup-markdown-mode")
+(load "setup-octave-mode")
+(load "setup-projectile")
+(load "setup-recentf")
+(load "setup-rhtml-mode")
+(load "setup-ruby-mode")
+(load "setup-yaml-mode")
+(load "setup-omnisharp")
+(load "setup-ibuffer")
+(load "setup-chords")
 
 (server-start)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
