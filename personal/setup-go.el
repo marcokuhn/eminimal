@@ -5,6 +5,8 @@
 (require 'go-mode-load)
 
 (setenv "GOPATH" (getenv "HOME"))
+(setq goroot (substring (shell-command-to-string "go env GOROOT") 0 -1))
+(setenv "PATH" (concat goroot "/bin" ":" (getenv "PATH")))
 
 (add-hook 'go-mode-hook
           (lambda ()
