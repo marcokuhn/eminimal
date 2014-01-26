@@ -538,8 +538,6 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 
              (helm-source-header ((t (,@bg-base02 ,@fg-base1))))
              (helm-selection ((t (,@bg-base00 ,@fg-base03))))
-
-             (flycheck-warning ((t ( @,bg-orange :underline))))
              )
 
             ((foreground-color . ,(when (<= 16 (display-color-cells)) base0))

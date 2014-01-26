@@ -14,6 +14,8 @@
 
 (setq ring-bell-function (lambda() ()))
 
+(setq ns-pop-up-frames nil)
+
 (if (fboundp 'fringe-mode)
     (fringe-mode 4))
 

@@ -14,12 +14,11 @@
 
 (add-hook 'haskell-mode-hook
           (lambda ()
-            (ghc-init)
             (require 'inf-haskell)
             (require 'haskell-indentation)
+            (ghc-init)
             (define-key haskell-mode-map (kbd "M-RET") nil)
             (define-key haskell-mode-map (kbd "C-c C-h") 'console-hoogle)
-            (setq ac-sources '(ac-source-ghc-mod))
             (turn-on-haskell-indentation)))
 
 (autoload 'ghc-init "ghc" nil t)
