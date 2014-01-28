@@ -50,13 +50,15 @@
           :buffer "*projectile recent files*"
           :prompt (projectile-prepend-project-name "recentf: "))))
 
+(setq helm-m-occur-idle-delay 0.1)
+
+(define-key helm-map (kbd "SPC") 'helm-exit-minibuffer)
 (global-set-key (kbd "C-c C-k") 'helm-show-kill-ring)
 
-(global-set-key (kbd "M-SPC") 'helm-mini)
+(global-set-key (kbd "C-SPC") 'helm-mini)
 (global-set-key (kbd "M-RET") 'helm-mini)
 
 (global-set-key (kbd "s-d") 'helm-projectile-dirs)
-(global-set-key (kbd "s-p") 'projectile-switch-project)
 (global-set-key (kbd "s-f") 'helm-projectile-files)
 (global-set-key (kbd "s-g") 'helm-git-grep)
 (global-set-key (kbd "s-r") 'helm-projectile-recentf)

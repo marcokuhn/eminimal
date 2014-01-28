@@ -20,4 +20,4 @@
 (global-set-key (kbd "s-k") 'elscreen-next)
 (global-set-key (kbd "s-l") 'elscreen-link)
 (global-set-key (kbd "s-;") 'elscreen-split)
-(global-set-key (kbd "s-y") 'elscreen-swap)
+(global-set-key (kbd "s-h") 'elscreen-swap)

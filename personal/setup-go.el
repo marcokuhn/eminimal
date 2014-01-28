@@ -4,6 +4,8 @@
 
 (require 'go-mode-load)
 
+(setenv "GOPATH" (getenv "HOME"))
+
 (add-hook 'go-mode-hook
           (lambda ()
             (add-hook 'write-contents-functions 'gofmt)

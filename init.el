@@ -9,6 +9,7 @@
 (load "setup-auto-complete")
 (load "setup-c-mode")
 (load "setup-company")
+(load "setup-cycbuf")
 (load "setup-dart-mode")
 (load "setup-dash")
 (load "setup-dired")
