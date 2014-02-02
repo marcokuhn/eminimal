@@ -1,4 +1,5 @@
 (require-package 'helm)
+(require-package 'projectile)
 (require-package 'helm-projectile)
 (require-package 'helm-ls-git)
 (require-package 'helm-swoop)
@@ -7,6 +8,8 @@
 (require 'helm-config)
 
 (helm-mode)
+
+(diminish 'helm-mode)
 
 (defvar helm-source-projectile-dirs-list
   `((name . "Projectile Dirs")

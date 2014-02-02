@@ -1,5 +1,7 @@
 (require-package 'evil)
-(require 'evil-mode-line)
+(require-package 'undo-tree)
+
+(diminish 'undo-tree-mode)
 
 (evil-mode 1)
 
