@@ -10,7 +10,6 @@
     (switch-to-buffer (current-buffer))
     (call-process "hoogle" nil buffer t "--info" query)
     (display-message-or-buffer buffer)))
-  
 
 (add-hook 'haskell-mode-hook
           (lambda ()
