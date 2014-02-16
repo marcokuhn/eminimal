@@ -8,9 +8,7 @@
 
 (load "setup-auto-complete")
 (load "setup-c-mode")
-(load "setup-chords")
 (load "setup-company")
-(load "setup-cycbuf")
 (load "setup-dart-mode")
 (load "setup-dash")
 (load "setup-dired")
@@ -33,6 +31,7 @@
 (load "setup-recentf")
 (load "setup-rhtml-mode")
 (load "setup-ruby-mode")
+(load "setup-smooth-scroll")
 (load "setup-yaml-mode")
 
 (server-start)

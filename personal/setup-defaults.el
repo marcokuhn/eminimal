@@ -1,23 +1,23 @@
 (blink-cursor-mode -1)
 (setq inhibit-startup-screen t)
 
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
-
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode -1)
 (menu-bar-mode t)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
+
+(if (fboundp 'fringe-mode)
+    (fringe-mode 8))
 
 (setq ring-bell-function (lambda() ()))
 
 (setq ns-pop-up-frames nil)
-
-(if (fboundp 'fringe-mode)
-    (fringe-mode 4))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 

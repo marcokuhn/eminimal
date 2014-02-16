@@ -5,3 +5,6 @@ auto-save-list
 projectile-bookmarks.eld
 ac-comphist.dat
 lastdir
+tramp
+url/cookies
+*.elc
