@@ -11,7 +11,6 @@ Evil mode is activated by default!
 `C-g` means Control - g
 `S-g` means Cmd - g on OSX
 
-```
 | Shortcut | Action                   |
 | -------- |:------------------------:|
 | C-g      | Cancel                   |
@@ -25,6 +24,3 @@ Evil mode is activated by default!
 | C-x C-f  | Find or create file      |
 | C-c c    | Compile                  |
 | C-c d    | Open doc in Dash         |
-
-
-```
