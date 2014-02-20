@@ -35,6 +35,8 @@
 
 (savehist-mode +1)
 
+(set-frame-font "Menlo-18")
+
 (global-set-key (kbd "DEL") 'backward-delete-char-untabify)
 (global-set-key (kbd "RET") 'newline-and-indent)
 

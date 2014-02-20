@@ -536,6 +536,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (elscreen-tab-other-screen-face ((t ( ,@bg-base01))))
              (elscreen-tab-current-screen-face ((t ( ,@bg-base00 ,@fg-base03))))
 
+             (company-preview ((t ( ,@fg-base01))))
+
              (helm-source-header ((t (,@bg-base02 ,@fg-base1))))
              (helm-selection ((t (,@bg-base00 ,@fg-base03))))
              (helm-match ((t (,@bg-base00 ,@fg-base02))))
