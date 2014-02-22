@@ -1,5 +1,6 @@
 (require-package 'projectile)
 (require-package 'diminish)
+(require-package 'grizzl)
 
 (setq projectile-cache-file "/tmp/projectile-cache")
 (projectile-global-mode t)
