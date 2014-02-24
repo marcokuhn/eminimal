@@ -15,7 +15,7 @@
 (load "setup-elscreen")
 (load "setup-emacs-lisp-mode")
 (load "setup-ensime")
-(load "setup-evil")
+;; (load "setup-evil")
 (load "setup-flycheck-mode")
 (load "setup-go")
 (load "setup-haml-mode")
