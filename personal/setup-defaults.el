@@ -48,3 +48,6 @@
 
 (add-to-list 'exec-path "~/bin")
 (add-to-list 'exec-path "/usr/local/bin")
+
+(setq ns-alternate-modifier nil)
+(setq mac-right-option-modifier 'meta)
