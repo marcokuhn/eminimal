@@ -69,8 +69,16 @@
 (defun indent-buffer ()
   "indent whole buffer"
   (interactive)
-  (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max)))
+  (if (member major-mode '(emacs-lisp-mode lisp-mode js2-mode
+                                           clojure-mode    scheme-mode
+                                           haskell-mode    ruby-mode
+                                           rspec-mode      python-mode
+                                           c-mode          c++-mode
+                                           objc-mode       latex-mode
+                                           plain-tex-mode))
+      (progn
+        (delete-trailing-whitespace)
+        (indent-region (point-min) (point-max) nil)
+        (untabify (point-min) (point-max)))))
 
 (add-hook 'after-save-hook 'indent-buffer)
